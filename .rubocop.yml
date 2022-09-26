@@ -1,0 +1,57 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+    - 'vendor/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - config/**/*
+    - spec/**/*
+    - lib/tasks/auto_annotate_models.rake
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash']
+  Max: 30
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
+Rails/FilePath:
+  Exclude:
+    - spec/**/*
+
+# Exceptions for rswag specs
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - spec/integration/*
+RSpec/DescribeClass:
+  Exclude:
+    - spec/integration/*
+RSpec/LetSetup:
+  Exclude:
+    - spec/integration/*
+
+RSpec/NestedGroups:
+  Max: 4
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Rails/HasAndBelongsToMany:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
