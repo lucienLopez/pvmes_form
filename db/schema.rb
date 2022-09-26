@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_170913) do
     t.bigint "customer_id"
     t.string "address"
     t.date "date"
+    t.integer "panel_type"
     t.integer "panels_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_170913) do
 
   create_table "panels", force: :cascade do |t|
     t.bigint "installation_id"
-    t.integer "type"
+    t.integer "panel_type"
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

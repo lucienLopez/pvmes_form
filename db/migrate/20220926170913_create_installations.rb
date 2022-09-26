@@ -21,6 +21,7 @@ class CreateInstallations < ActiveRecord::Migration[7.0]
 
       t.string :address
       t.date :date, index: true
+      t.integer :panel_type
       t.integer :panels_count
 
       t.timestamps
@@ -29,7 +30,7 @@ class CreateInstallations < ActiveRecord::Migration[7.0]
     create_table :panels do |t|
       t.references :installation, foreign_key: true
 
-      t.integer :type
+      t.integer :panel_type
       t.string :code, index: true
 
       t.timestamps

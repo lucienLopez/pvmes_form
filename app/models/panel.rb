@@ -4,7 +4,7 @@
 #
 #  id              :bigint           not null, primary key
 #  code            :string
-#  type            :integer
+#  panel_type      :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  installation_id :bigint
@@ -19,13 +19,13 @@
 #  fk_rails_...  (installation_id => installations.id)
 #
 class Panel < ApplicationRecord
-  enum type: {
+  enum panel_type: {
     photovoltaic: 0,
     hybrid: 1
   }
 
   belongs_to :installation, counter_cache: true
 
-  validates :id, presence: true, format: { with: /\A([0-9]{6})\Z/ }
-  validates :type, presence: true
+  validates :code, presence: true, format: { with: /\A([0-9]{6})\Z/ }
+  validates :panel_type, presence: true
 end
